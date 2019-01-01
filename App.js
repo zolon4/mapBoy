@@ -7,7 +7,7 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, Button, Alert, SafeAreaView, TouchableOpacity, Dimensions, ActivityIndicator } from 'react-native';
+import {Platform, StyleSheet, Text, View, Button, Alert, SafeAreaView, TouchableOpacity, Dimensions, ActivityIndicator, AsyncStorage } from 'react-native';
 import Mapbox from '@mapbox/react-native-mapbox-gl';
 Mapbox.setAccessToken('pk.eyJ1Ijoiem9sb24iLCJhIjoiY2pxY3ZucGFlM20zbTQ4bjIwaWl1eGw5NCJ9.z9-BvSlFUuNxVVqwuz11Sw');
 
@@ -24,9 +24,17 @@ export default class App extends Component<Props> {
       longitude: 114.139249,
       isLoading: true
     }
+    this._storeData('token', 'zolon')
+    this.centerMap = this.centerMap.bind(this)
+    this.setUserLocation = this.setUserLocation.bind(this)
   }
 
   componentDidMount() {
+    this._retrieveData('token')
+    this.setUserLocation()
+  }
+
+  setUserLocation() {
     navigator.geolocation.getCurrentPosition(
       (position) => {
         this.setState({
@@ -40,9 +48,30 @@ export default class App extends Component<Props> {
     );
   }
 
+  _storeData = async(key, item) => {
+    try {
+      await AsyncStorage.setItem(key, item);
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  _retrieveData = async(key) => {
+    try {
+      const value = await AsyncStorage.getItem(key);
+      if (value) {
+        this.setState({token: value})
+      }
+     } catch (error) {
+       console.log(error)
+     }
+  }
+
   onUserLocationUpdate(location) {
-    console.log(location)
-    this.setState({ latitude: location.coords.latitude, longitude: location.coords.longitude });
+    this.setState({
+      latitude: location.coords.latitude,
+      longitude: location.coords.longitude
+    });
   }
 
   centerMap () {
@@ -53,18 +82,8 @@ export default class App extends Component<Props> {
     }
   }
 
-  renderAnnotations (title) {
-    return (
-      <Mapbox.PointAnnotation key='pointAnnotation' id='pointAnnotation' coordinate={[this.state.longitude, this.state.latitude]}>
-        <View style={styles.annotationContainer}>
-          <View style={styles.annotationFill} />
-        </View>
-        <Mapbox.Callout title={title} />
-      </Mapbox.PointAnnotation>
-    )
-  }
-
   render() {
+
     return (
       <View style={styles.container}>
         <Mapbox.MapView
@@ -76,7 +95,7 @@ export default class App extends Component<Props> {
           onUserLocationUpdate={this.onUserLocationUpdate.bind(this)}
           style={styles.map}>
           <SafeAreaView>
-            <TouchableOpacity style={styles.button} onPress={this.centerMap.bind(this)}>
+            <TouchableOpacity style={styles.button} onPress={this.centerMap}>
               <Text style={styles.buttonText}>Center Map</Text>
             </TouchableOpacity>
           </SafeAreaView>
