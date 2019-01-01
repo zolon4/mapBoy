@@ -13,7 +13,6 @@
 		00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		00E356F31AD99517003FC87E /* mapBoyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* mapBoyTests.m */; };
-		04095C7E0B1C4282B273B4F8 /* JosefinSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA1FCB8B7EC84D57A58D0012 /* JosefinSans-Regular.ttf */; };
 		11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
@@ -40,10 +39,11 @@
 		3688CFA5176E36C313CF7B81 /* libPods-mapBoy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AFC77AA2C9EBD97ACDF96A63 /* libPods-mapBoy.a */; };
 		4D4DF374CAFA1CAA5764D8F1 /* libPods-mapBoy-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D9B79FB0431E0335B74BFD9 /* libPods-mapBoy-tvOS.a */; };
 		710E144780357C3E4DEAE349 /* libPods-mapBoyTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FE66732FE21FD3C02E3E792 /* libPods-mapBoyTests.a */; };
-		7BB8249600F54ED889F37B57 /* JosefinSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A419572F64E24473BC154766 /* JosefinSans-SemiBold.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		866D208366F142D1B37A983E /* NunitoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 962CBB486D3040068F69AE58 /* NunitoSans-Bold.ttf */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
-		C228FE96EBBB456383D79D2F /* JosefinSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 607B3C922E0F4A2297CDDCB6 /* JosefinSans-Bold.ttf */; };
+		B86286D5FE964580A12C4084 /* NunitoSans-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14FDAD5550144304AEA01121 /* NunitoSans-Black.ttf */; };
+		F48CA4AA89F444839621BFED /* NunitoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DCD0101120D14F87917DEE28 /* NunitoSans-Regular.ttf */; };
 		F5BF81827FAA3CD8947DD822 /* libPods-mapBoy-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6680480A96BF1D238F2715 /* libPods-mapBoy-tvOSTests.a */; };
 /* End PBXBuildFile section */
 
@@ -343,6 +343,7 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = mapBoy/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = mapBoy/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		14FDAD5550144304AEA01121 /* NunitoSans-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NunitoSans-Black.ttf"; path = "../assets/fonts/NunitoSans-Black.ttf"; sourceTree = "<group>"; };
 		28FBFF973A3BA6D0C50C6DA6 /* Pods-mapBoy-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mapBoy-tvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mapBoy-tvOSTests/Pods-mapBoy-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* mapBoy-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mapBoy-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* mapBoy-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mapBoy-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -352,19 +353,18 @@
 		4AE9994DC3D92E89CF406E38 /* Pods-mapBoy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mapBoy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mapBoy/Pods-mapBoy.debug.xcconfig"; sourceTree = "<group>"; };
 		4FE66732FE21FD3C02E3E792 /* libPods-mapBoyTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mapBoyTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
-		607B3C922E0F4A2297CDDCB6 /* JosefinSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "JosefinSans-Bold.ttf"; path = "../assets/fonts/JosefinSans-Bold.ttf"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		8D9B79FB0431E0335B74BFD9 /* libPods-mapBoy-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mapBoy-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		94125E35CDD8F318DD798871 /* Pods-mapBoyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mapBoyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-mapBoyTests/Pods-mapBoyTests.release.xcconfig"; sourceTree = "<group>"; };
-		A419572F64E24473BC154766 /* JosefinSans-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "JosefinSans-SemiBold.ttf"; path = "../assets/fonts/JosefinSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		962CBB486D3040068F69AE58 /* NunitoSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NunitoSans-Bold.ttf"; path = "../assets/fonts/NunitoSans-Bold.ttf"; sourceTree = "<group>"; };
 		A9381EFC9D13D776F6EC1BC2 /* Pods-mapBoyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mapBoyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mapBoyTests/Pods-mapBoyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		AFC77AA2C9EBD97ACDF96A63 /* libPods-mapBoy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mapBoy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC6680480A96BF1D238F2715 /* libPods-mapBoy-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mapBoy-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCD0101120D14F87917DEE28 /* NunitoSans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NunitoSans-Regular.ttf"; path = "../assets/fonts/NunitoSans-Regular.ttf"; sourceTree = "<group>"; };
 		EFDB5F9CAB92DCC4039853EE /* Pods-mapBoy-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mapBoy-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-mapBoy-tvOS/Pods-mapBoy-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		F63330315BB8200E03B1FB6C /* Pods-mapBoy-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mapBoy-tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-mapBoy-tvOSTests/Pods-mapBoy-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		FA1FCB8B7EC84D57A58D0012 /* JosefinSans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "JosefinSans-Regular.ttf"; path = "../assets/fonts/JosefinSans-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -559,9 +559,9 @@
 		2338E4121C9949C1892FE350 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				607B3C922E0F4A2297CDDCB6 /* JosefinSans-Bold.ttf */,
-				FA1FCB8B7EC84D57A58D0012 /* JosefinSans-Regular.ttf */,
-				A419572F64E24473BC154766 /* JosefinSans-SemiBold.ttf */,
+				14FDAD5550144304AEA01121 /* NunitoSans-Black.ttf */,
+				962CBB486D3040068F69AE58 /* NunitoSans-Bold.ttf */,
+				DCD0101120D14F87917DEE28 /* NunitoSans-Regular.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1111,9 +1111,9 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				C228FE96EBBB456383D79D2F /* JosefinSans-Bold.ttf in Resources */,
-				04095C7E0B1C4282B273B4F8 /* JosefinSans-Regular.ttf in Resources */,
-				7BB8249600F54ED889F37B57 /* JosefinSans-SemiBold.ttf in Resources */,
+				B86286D5FE964580A12C4084 /* NunitoSans-Black.ttf in Resources */,
+				866D208366F142D1B37A983E /* NunitoSans-Bold.ttf in Resources */,
+				F48CA4AA89F444839621BFED /* NunitoSans-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

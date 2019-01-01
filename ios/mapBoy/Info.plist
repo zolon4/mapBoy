@@ -55,9 +55,9 @@
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>JosefinSans-Bold.ttf</string>
-		<string>JosefinSans-Regular.ttf</string>
-		<string>JosefinSans-SemiBold.ttf</string>
+		<string>NunitoSans-Black.ttf</string>
+		<string>NunitoSans-Bold.ttf</string>
+		<string>NunitoSans-Regular.ttf</string>
 	</array>
 </dict>
 </plist>

@@ -7,7 +7,7 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, Button, Alert, SafeAreaView, TouchableOpacity, Dimensions } from 'react-native';
+import {Platform, StyleSheet, Text, View, Button, Alert, SafeAreaView, TouchableOpacity, Dimensions, ActivityIndicator } from 'react-native';
 import Mapbox from '@mapbox/react-native-mapbox-gl';
 Mapbox.setAccessToken('pk.eyJ1Ijoiem9sb24iLCJhIjoiY2pxY3ZucGFlM20zbTQ4bjIwaWl1eGw5NCJ9.z9-BvSlFUuNxVVqwuz11Sw');
 
@@ -21,7 +21,8 @@ export default class App extends Component<Props> {
     super(props)
     this.state = {
       latitude: 22.3827448,
-      longitude: 114.139249
+      longitude: 114.139249,
+      isLoading: true
     }
   }
 
@@ -31,6 +32,7 @@ export default class App extends Component<Props> {
         this.setState({
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
+          isLoading: false
         });
       },
       (error) => console.log(error),
@@ -96,24 +98,8 @@ const styles = StyleSheet.create({
     height: height,
     width: width
   },
-  annotationContainer: {
-    width: 30,
-    height: 30,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'white',
-    borderRadius: 15,
-  },
-  annotationFill: {
-    width: 30,
-    height: 30,
-    borderRadius: 15,
-    backgroundColor: 'orange',
-    transform: [{ scale: 0.6 }],
-  },
   button: {
     alignSelf:'center',
-    justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#007bff',
     paddingVertical: 10,
@@ -125,7 +111,6 @@ const styles = StyleSheet.create({
   buttonText: {
     color: 'white',
     fontSize: 20,
-    fontFamily: 'JosefinSans-Bold',
-    fontWeight: 'bold',
+    fontFamily: 'NunitoSans-Black',
   }
 });
