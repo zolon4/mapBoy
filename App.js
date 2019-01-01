@@ -11,8 +11,8 @@ import {Platform, StyleSheet, Text, View, Button, Alert, SafeAreaView, Touchable
 import Mapbox from '@mapbox/react-native-mapbox-gl';
 Mapbox.setAccessToken('pk.eyJ1Ijoiem9sb24iLCJhIjoiY2pxY3ZucGFlM20zbTQ4bjIwaWl1eGw5NCJ9.z9-BvSlFUuNxVVqwuz11Sw');
 
-var width = Dimensions.get('window').width; //full width
-var height = Dimensions.get('window').height; //full width
+var width = Dimensions.get('window').width;
+var height = Dimensions.get('window').height;
 
 type Props = {};
 export default class App extends Component<Props> {
@@ -116,8 +116,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#007bff',
-    paddingVertical: 5,
-    paddingHorizontal: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 15,
     width: 'auto',
     marginHorizontal: 'auto',
     borderRadius: 15
