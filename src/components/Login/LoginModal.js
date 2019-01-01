@@ -24,9 +24,15 @@ class LoginModal extends Component {
         username: this.state.username,
         password: this.state.password,
       }),
+    }).then(function(response) {
+      if (response.ok) {
+        response.json().then(function(json) {
+          _this.props.setUser(json)
+        });
+      } else {
+        Alert.alert('Something went wrong');
+      }
     })
-    .then(response => response.json())
-    .then(json => _this.props.setUser(json))
   }
 
   render() {

@@ -45,10 +45,12 @@ export default class App extends Component<Props> {
     this.setModalVisible = this.setModalVisible.bind(this)
     this.setUserLocation = this.setUserLocation.bind(this)
     this.setUser = this.setUser.bind(this)
+    this.logOut = this.logOut.bind(this)
   }
 
   componentDidMount() {
     this.setUserLocation()
+    this._retrieveData('user')
   }
 
   setModalVisible(visible) {
@@ -80,11 +82,21 @@ export default class App extends Component<Props> {
     try {
       const value = await AsyncStorage.getItem(key);
       if (value) {
-        this.setState({token: value})
+        this.setState({user: JSON.parse(value)})
       }
      } catch (error) {
        console.log(error)
      }
+  }
+
+  _removeData = async(key) => {
+    try {
+      await AsyncStorage.removeItem(key);
+      return true;
+    }
+    catch(exception) {
+      return false;
+    }
   }
 
   onUserLocationUpdate(location) {
@@ -103,7 +115,15 @@ export default class App extends Component<Props> {
   }
 
   setUser(user) {
-    this.setState({user: user, modalVisible: false})
+    this._storeData("user", JSON.stringify(user))
+    this.setState({ user: user, modalVisible: false })
+  }
+
+
+  logOut() {
+    this._removeData("user")
+    this.setState({user: undefined})
+    Alert.alert("You've been logged out")
   }
 
   render() {
@@ -128,6 +148,15 @@ export default class App extends Component<Props> {
                 onPress={() => { this.setModalVisible(true);}}
                 >
                 <Text style={styles.buttonText}>Log In</Text>
+              </TouchableOpacity>
+            )}
+
+            { this.state.user && (
+              <TouchableOpacity
+                style={styles.logOutButton}
+                onPress={this.logOut}
+                >
+                <Text style={styles.buttonText}>Log Out</Text>
               </TouchableOpacity>
             )}
           </SafeAreaView>
@@ -162,6 +191,17 @@ const styles = StyleSheet.create({
     alignSelf:'center',
     alignItems: 'center',
     backgroundColor: 'green',
+    paddingVertical: 10,
+    marginTop: 3,
+    paddingHorizontal: 15,
+    width: 'auto',
+    marginHorizontal: 'auto',
+    borderRadius: 15
+  },
+  logOutButton: {
+    alignSelf:'center',
+    alignItems: 'center',
+    backgroundColor: 'red',
     paddingVertical: 10,
     marginTop: 3,
     paddingHorizontal: 15,
