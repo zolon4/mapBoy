@@ -7,10 +7,10 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, Button, Alert, SafeAreaView, TouchableOpacity } from 'react-native';
-import { Dimensions } from "react-native";
+import {Platform, StyleSheet, Text, View, Button, Alert, SafeAreaView, TouchableOpacity, Dimensions } from 'react-native';
 import Mapbox from '@mapbox/react-native-mapbox-gl';
 Mapbox.setAccessToken('pk.eyJ1Ijoiem9sb24iLCJhIjoiY2pxY3ZucGFlM20zbTQ4bjIwaWl1eGw5NCJ9.z9-BvSlFUuNxVVqwuz11Sw');
+
 var width = Dimensions.get('window').width; //full width
 var height = Dimensions.get('window').height; //full width
 
@@ -124,7 +124,8 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: 'white',
+    fontSize: 20,
+    fontFamily: 'JosefinSans-Bold',
     fontWeight: 'bold',
-    fontSize: 15
   }
 });
