@@ -7,9 +7,12 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View, Button, Alert, SafeAreaView, TouchableOpacity } from 'react-native';
+import { Dimensions } from "react-native";
 import Mapbox from '@mapbox/react-native-mapbox-gl';
 Mapbox.setAccessToken('pk.eyJ1Ijoiem9sb24iLCJhIjoiY2pxY3ZucGFlM20zbTQ4bjIwaWl1eGw5NCJ9.z9-BvSlFUuNxVVqwuz11Sw');
+var width = Dimensions.get('window').width; //full width
+var height = Dimensions.get('window').height; //full width
 
 type Props = {};
 export default class App extends Component<Props> {
@@ -36,12 +39,13 @@ export default class App extends Component<Props> {
   }
 
   onUserLocationUpdate(location) {
+    console.log(location)
     this.setState({ latitude: location.coords.latitude, longitude: location.coords.longitude });
   }
 
   centerMap () {
     if (this.state.latitude) {
-      this.map.setCamera({
+      this._map.setCamera({
         centerCoordinate: [this.state.longitude, this.state.latitude],
       });
     }
@@ -62,13 +66,18 @@ export default class App extends Component<Props> {
     return (
       <View style={styles.container}>
         <Mapbox.MapView
-          styleURL={Mapbox.StyleURL.Street}
+          ref={(c) => this._map = c}
+          styleURL={Mapbox.StyleURL.Dark}
           zoomLevel={15}
           showUserLocation={true}
           centerCoordinate={[this.state.longitude, this.state.latitude]}
-          onUpdateUserLocation={this.onUserLocationUpdate.bind(this)}
-          style={styles.container}>
-          {this.renderAnnotations("LOOK")}
+          onUserLocationUpdate={this.onUserLocationUpdate.bind(this)}
+          style={styles.map}>
+          <SafeAreaView>
+            <TouchableOpacity style={styles.button} onPress={this.centerMap.bind(this)}>
+              <Text style={styles.buttonText}>Center Map</Text>
+            </TouchableOpacity>
+          </SafeAreaView>
         </Mapbox.MapView>
       </View>
     );
@@ -79,6 +88,13 @@ export default class App extends Component<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'center',
+    width: width
+  },
+  map: {
+    flex: 1,
+    height: height,
+    width: width
   },
   annotationContainer: {
     width: 30,
@@ -94,5 +110,21 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     backgroundColor: 'orange',
     transform: [{ scale: 0.6 }],
+  },
+  button: {
+    alignSelf:'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#007bff',
+    paddingVertical: 5,
+    paddingHorizontal: 10,
+    width: 'auto',
+    marginHorizontal: 'auto',
+    borderRadius: 15
+  },
+  buttonText: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 15
   }
 });
