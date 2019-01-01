@@ -38,15 +38,16 @@ export default class App extends Component<Props> {
     this.state = {
       latitude: 22.3827448,
       longitude: 114.139249,
-      modalVisible: false
+      modalVisible: false,
+      user: undefined
     }
     this.centerMap = this.centerMap.bind(this)
     this.setModalVisible = this.setModalVisible.bind(this)
     this.setUserLocation = this.setUserLocation.bind(this)
+    this.setUser = this.setUser.bind(this)
   }
 
   componentDidMount() {
-    this._retrieveData('token')
     this.setUserLocation()
   }
 
@@ -101,6 +102,10 @@ export default class App extends Component<Props> {
     }
   }
 
+  setUser(user) {
+    this.setState({user: user, modalVisible: false})
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -113,11 +118,11 @@ export default class App extends Component<Props> {
           onUserLocationUpdate={this.onUserLocationUpdate.bind(this)}
           style={styles.map}>
           <SafeAreaView>
-            <LoginModal visible={this.state.modalVisible} setModalVisible={this.setModalVisible}/>
+            <LoginModal visible={this.state.modalVisible} setModalVisible={this.setModalVisible} setUser={this.setUser} />
             <TouchableOpacity style={styles.button} onPress={this.centerMap}>
               <Text style={styles.buttonText}>Center Map</Text>
             </TouchableOpacity>
-            { this.state.token && (
+            { !this.state.user && (
               <TouchableOpacity
                 style={styles.logInButton}
                 onPress={() => { this.setModalVisible(true);}}
