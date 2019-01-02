@@ -23,6 +23,7 @@ import {
   Modal
 } from 'react-native';
 import LoginModal from './src/components/Login/LoginModal'
+import Api from './src/api/api'
 import Mapbox from '@mapbox/react-native-mapbox-gl';
 var width = Dimensions.get('window').width;
 var height = Dimensions.get('window').height;
@@ -46,23 +47,43 @@ export default class App extends Component<Props> {
     this.setUserLocation = this.setUserLocation.bind(this)
     this.setUser = this.setUser.bind(this)
     this.logOut = this.logOut.bind(this)
+    this.getUser = this.getUser.bind(this)
+    this.handleLocationUpdate = this.handleLocationUpdate.bind(this)
+    this.onUserLocationUpdate = this.onUserLocationUpdate.bind(this)
   }
 
   componentDidMount() {
     this.setUserLocation()
-    this._retrieveData('user')
+    this.getUser()
   }
+
+  getUser() {
+    var _this = this
+    this._retrieveData('user').then(function(response) {
+      var user = JSON.parse(response)
+      _this.setState({user: user})
+      Api.updateUserLocation(_this.state.latitude, _this.state.longitude, user.token, this.handleLocationUpdate)
+    })
+  }
+
+  handleLocationUpdate(response) {
+    this.setState({user: response})
+  }
+
 
   setModalVisible(visible) {
     this.setState({modalVisible: visible});
   }
 
   setUserLocation() {
+    var _this = this
     navigator.geolocation.getCurrentPosition(
       (position) => {
+        var latitude = position.coords.latitude
+        var longitude = position.coords.longitude
         this.setState({
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude
+          latitude: latitude,
+          longitude: longitude
         });
       },
       (error) => console.log(error),
@@ -82,7 +103,7 @@ export default class App extends Component<Props> {
     try {
       const value = await AsyncStorage.getItem(key);
       if (value) {
-        this.setState({user: JSON.parse(value)})
+        return value
       }
      } catch (error) {
        console.log(error)
@@ -100,10 +121,14 @@ export default class App extends Component<Props> {
   }
 
   onUserLocationUpdate(location) {
+    var latitude = location.coords.latitude
+    var longitude = location.coords.longitude
     this.setState({
-      latitude: location.coords.latitude,
-      longitude: location.coords.longitude
+      latitude: latitude,
+      longitude: longitude
     });
+    Api.updateUserLocation(latitude, longitude, this.state.user.token, this.handleLocationUpdate)
+
   }
 
   centerMap () {
@@ -135,7 +160,7 @@ export default class App extends Component<Props> {
           zoomLevel={15}
           showUserLocation={true}
           centerCoordinate={[this.state.longitude, this.state.latitude]}
-          onUserLocationUpdate={this.onUserLocationUpdate.bind(this)}
+          onUserLocationUpdate={this.onUserLocationUpdate}
           style={styles.map}>
           <SafeAreaView>
             <LoginModal visible={this.state.modalVisible} setModalVisible={this.setModalVisible} setUser={this.setUser} />
